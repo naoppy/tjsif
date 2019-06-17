@@ -1,10 +1,7 @@
 import argparse
-import gstreamer
 import imp
 import os
 import re
-import svgwrite
-import time
 from edgetpu.detection.engine import DetectionEngine
 
 
@@ -20,14 +17,13 @@ def get_person_list(objs, labels):
     for obj in objs:
         x0, y0, x1, y1 = obj.bounding_box.flatten().toList()
         percent = int(100 * obj.score)
-        label = '%d%% %s' % (percent, lables[obj.label_id])
-        if label == "person":
+        if labels[obj.label_id] == "person":
             returnlist += (x0, y0, x1, y1, percent)
 
     return returnlist
 
 
-def main():
+def prepare_edgetpu():
     default_model_dir = './all_models'
     default_model = 'mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite'
     default_labels = 'coco_labels.txt'
@@ -46,7 +42,6 @@ def main():
     engine = DetectionEngine(args.model)
     labels = load_labels(args.labels)
 
-    
 
 if __name__ == '__main__':
-    main()
+    pass
