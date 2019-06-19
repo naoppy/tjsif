@@ -63,4 +63,7 @@ def main_loop(function):
 
 
 if __name__ == '__main__':
-    main_loop()
+    def empty_func(frame):
+        pass
+    
+    main_loop(empty_func)
