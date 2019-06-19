@@ -3,6 +3,8 @@ import imp
 import os
 import re
 from edgetpu.detection.engine import DetectionEngine
+import numpy as np
+import cv2
 
 
 def load_labels(path):
@@ -43,5 +45,22 @@ def prepare_edgetpu():
     labels = load_labels(args.labels)
 
 
+def main_loop(function):
+    cap = cv2.VideoCapture(0)
+
+    while True:
+        ret, frame = cap.read()
+
+        cv2.imshow('frame', frame)
+
+        function(frame)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+
 if __name__ == '__main__':
-    pass
+    main_loop()
