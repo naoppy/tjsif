@@ -48,11 +48,13 @@ def prepare_edgetpu():
 def main_loop(function):
     cap = cv2.VideoCapture(0)
 
-    print("Camera Height:%d Width:%d" % (cap.get(3), cap.get(4)))
+    height = int(cap.get(3))
+    width = int(cap.get(4))
+    print("Camera Height:%d Width:%d" % (height, width))
 
     # Define the codec and create VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    out = cv2.VideoWriter('output.avi', fourcc, 30.0, (cap.get(3), cap.get(4)))
+    fourcc = cv2.VideoWriter_fourcc(*'X264')
+    out = cv2.VideoWriter('output.avi', fourcc, 30.0, (height, width))
 
     while True:
         ret, frame = cap.read()
@@ -66,6 +68,7 @@ def main_loop(function):
             break
 
     cap.release()
+    out.release()
     cv2.destroyAllWindows()
 
 
