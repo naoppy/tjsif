@@ -5,6 +5,8 @@ import re
 from edgetpu.detection.engine import DetectionEngine
 import numpy as np
 import cv2
+import time
+from PIL import Image
 
 
 def load_labels(path):
@@ -43,9 +45,12 @@ def prepare_edgetpu():
     print("Loading %s with %s labels." % (args.model, args.labels))
     engine = DetectionEngine(args.model)
     labels = load_labels(args.labels)
+    threshold = args.threshold
+    top_k = args.top_k
+    return engine, labels, threshold, top_k, 
 
 
-def main_loop(function):
+def main_loop():
     cap = cv2.VideoCapture(0)
 
     height = int(cap.get(3))
@@ -56,13 +61,36 @@ def main_loop(function):
     fourcc = cv2.VideoWriter_fourcc(*'X264')
     out = cv2.VideoWriter('output.avi', fourcc, 30.0, (height, width))
 
+    # prepare EdgeTPU
+    engine, labels, threshold, top_k = prepare_edgetpu()
+
+    # empty func for debug
+    def empty_func(image):
+        pass
+        
+    
+    # main func
+    def main_func(image):
+        start_time = time.monotonic()
+        obj = engine.DetectWithImage(image, threshold=threshold,
+                                     keep_aspect_ratio=True, relative_coord=True,
+                                     top_k=top_k)
+        end_time = time.monotonic()
+        text_lines = [
+            'Inference: %.2f ms' % ((end_time - start_time) * 1000),
+            'FPS: %.2f fps' % (1.0/(end_time - start_time)),
+        ]
+        print(' '.join(text_lines))
+        
+
     while True:
         ret, frame = cap.read()
+        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        im_pil = Image.fromarray(rgb)
+        main_func(im_pil)
 
         cv2.imshow('frame', frame)
         out.write(frame)
-
-        function(frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -73,7 +101,4 @@ def main_loop(function):
 
 
 if __name__ == '__main__':
-    def empty_func(frame):
-        pass
-    
-    main_loop(empty_func)
+    main_loop()
