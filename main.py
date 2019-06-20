@@ -1,12 +1,12 @@
 import argparse
+import cv2
 import imp
+import numpy as np
 import os
 import re
-from edgetpu.detection.engine import DetectionEngine
-import numpy as np
-import cv2
 import time
 from PIL import Image
+from edgetpu.detection.engine import DetectionEngine
 
 
 def load_labels(path):
@@ -47,7 +47,7 @@ def prepare_edgetpu():
     labels = load_labels(args.labels)
     threshold = args.threshold
     top_k = args.top_k
-    return engine, labels, threshold, top_k, 
+    return engine, labels, threshold, top_k,
 
 
 def main_loop():
@@ -67,30 +67,32 @@ def main_loop():
     # empty func for debug
     def empty_func(image):
         pass
-        
-    
+
     # main func
     def main_func(image):
+        rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        im_pil = Image.fromarray(rgb)
+
         start_time = time.monotonic()
-        obj = engine.DetectWithImage(image, threshold=threshold,
-                                     keep_aspect_ratio=True, relative_coord=True,
-                                     top_k=top_k)
+        objs = engine.DetectWithImage(image, threshold=threshold,
+                                      keep_aspect_ratio=True, relative_coord=True,
+                                      top_k=top_k)
         end_time = time.monotonic()
         text_lines = [
             'Inference: %.2f ms' % ((end_time - start_time) * 1000),
-            'FPS: %.2f fps' % (1.0/(end_time - start_time)),
+            'FPS: %.2f fps' % (1.0 / (end_time - start_time)),
         ]
         print(' '.join(text_lines))
-        
+        person_list = get_person_list(objs, labels)
+        return image
 
     while True:
         ret, frame = cap.read()
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        im_pil = Image.fromarray(rgb)
-        main_func(im_pil)
 
-        cv2.imshow('frame', frame)
-        out.write(frame)
+        processed_frame = main_func(frame)
+
+        cv2.imshow('processed_frame', processed_frame)
+        out.write(processed_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
