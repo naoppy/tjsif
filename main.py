@@ -27,6 +27,13 @@ def get_person_list(objs, labels):
     return return_list
 
 
+def write_rect(img, tuple):
+    for x0, y0, x1, y1, percent in tuple:
+        x, y, w, h = x0, y0, x1 - x0, y1 - y0
+        x, y, w, h = int(x * width), int(y * height), int(w * width), int(h * height)
+        cv2.rectangle(img, (x, y), (w, h), (0, 0, 255), 5)
+
+
 def prepare_edgetpu():
     default_model_dir = './all_models'
     default_model = 'mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite'
@@ -81,6 +88,8 @@ def main_loop():
         ]
         print(' '.join(text_lines))
         person_list = get_person_list(objs, labels)
+        for e in person_list:
+            write_rect(image, e)
         return image
 
     while True:
