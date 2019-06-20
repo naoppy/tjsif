@@ -19,7 +19,7 @@ def load_labels(path):
 def get_person_list(objs, labels):
     return_list = []
     for obj in objs:
-        x0, y0, x1, y1 = obj.bounding_box.flatten().toList()
+        x0, y0, x1, y1 = obj.bounding_box.flatten().tolist()
         percent = int(100 * obj.score)
         if labels[obj.label_id] == "person":
             return_list += (x0, y0, x1, y1, percent)
