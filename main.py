@@ -17,14 +17,14 @@ def load_labels(path):
 
 
 def get_person_list(objs, labels):
-    returnlist = []
+    return_list = []
     for obj in objs:
         x0, y0, x1, y1 = obj.bounding_box.flatten().toList()
         percent = int(100 * obj.score)
         if labels[obj.label_id] == "person":
-            returnlist += (x0, y0, x1, y1, percent)
+            return_list += (x0, y0, x1, y1, percent)
 
-    return returnlist
+    return return_list
 
 
 def prepare_edgetpu():
@@ -64,23 +64,20 @@ def main_loop():
     # prepare EdgeTPU
     engine, labels, threshold, top_k = prepare_edgetpu()
 
-    # empty func for debug
-    def empty_func(image):
-        pass
-
     # main func
     def main_func(image):
         rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         im_pil = Image.fromarray(rgb)
 
         start_time = time.monotonic()
-        objs = engine.DetectWithImage(image, threshold=threshold,
+        objs = engine.DetectWithImage(im_pil, threshold=threshold,
                                       keep_aspect_ratio=True, relative_coord=True,
                                       top_k=top_k)
         end_time = time.monotonic()
         text_lines = [
             'Inference: %.2f ms' % ((end_time - start_time) * 1000),
             'FPS: %.2f fps' % (1.0 / (end_time - start_time)),
+            '%d object found' % len(objs),
         ]
         print(' '.join(text_lines))
         person_list = get_person_list(objs, labels)
