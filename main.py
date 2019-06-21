@@ -28,11 +28,10 @@ def get_person_list(objs, labels):
 
 
 def write_rect(img, tuple):
-    width, height, _ = img.shape
+    height, width, _ = img.shape
     x0, y0, x1, y1, percent = tuple
-    x, y, w, h = x0, y0, x1 - x0, y1 - y0
-    x, y, w, h = int(x * width), int(y * height), int(w * width), int(h * height)
-    cv2.rectangle(img, (x, y), (w, h), (0, 0, 255), 5)
+    x0, y0, x1, y1 = int(x0 * width), int(y0 * height), int(x1 * width), int(y1 * height)
+    cv2.rectangle(img, (x0, y0), (x1, y1), (0, 0, 255), 5)
 
 
 def prepare_edgetpu():
