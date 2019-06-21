@@ -22,16 +22,17 @@ def get_person_list(objs, labels):
         x0, y0, x1, y1 = obj.bounding_box.flatten().tolist()
         percent = int(100 * obj.score)
         if labels[obj.label_id] == "person":
-            return_list += (x0, y0, x1, y1, percent)
+            return_list.append((x0, y0, x1, y1, percent))
 
     return return_list
 
 
 def write_rect(img, tuple):
-    for x0, y0, x1, y1, percent in tuple:
-        x, y, w, h = x0, y0, x1 - x0, y1 - y0
-        x, y, w, h = int(x * width), int(y * height), int(w * width), int(h * height)
-        cv2.rectangle(img, (x, y), (w, h), (0, 0, 255), 5)
+    width, height, _ = img.shape
+    x0, y0, x1, y1, percent = tuple
+    x, y, w, h = x0, y0, x1 - x0, y1 - y0
+    x, y, w, h = int(x * width), int(y * height), int(w * width), int(h * height)
+    cv2.rectangle(img, (x, y), (w, h), (0, 0, 255), 5)
 
 
 def prepare_edgetpu():
