@@ -32,6 +32,8 @@ def write_rect(img, tuple):
     x0, y0, x1, y1, percent = tuple
     x0, y0, x1, y1 = int(x0 * width), int(y0 * height), int(x1 * width), int(y1 * height)
     cv2.rectangle(img, (x0, y0), (x1, y1), (0, 0, 255), 2)
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(img, '%d%' % percent, (x0, y0+10), font, 4, (0, 0, 255), 2, cv2.LINE_AA)
 
 
 def prepare_edgetpu():
