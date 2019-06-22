@@ -31,7 +31,7 @@ def write_rect(img, tuple):
     height, width, _ = img.shape
     x0, y0, x1, y1, percent = tuple
     x0, y0, x1, y1 = int(x0 * width), int(y0 * height), int(x1 * width), int(y1 * height)
-    cv2.rectangle(img, (x0, y0), (x1, y1), (0, 0, 255), 5)
+    cv2.rectangle(img, (x0, y0), (x1, y1), (0, 0, 255), 2)
 
 
 def prepare_edgetpu():
@@ -86,7 +86,7 @@ def main_loop():
             'FPS: %.2f fps' % (1.0 / (end_time - start_time)),
             '%d object found' % len(objs),
         ]
-        print(' '.join(text_lines))
+        #print(' '.join(text_lines))
         person_list = get_person_list(objs, labels)
         for e in person_list:
             write_rect(image, e)
