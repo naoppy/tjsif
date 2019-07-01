@@ -34,6 +34,7 @@ def write_rect_to_img(img, contours):
 def frame_diff_detection(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
+    global avg
     if avg is None:
         avg = gray.copy().astype("float")
         return None
