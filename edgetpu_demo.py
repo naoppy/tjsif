@@ -8,6 +8,8 @@ import time
 from PIL import Image
 from edgetpu.detection.engine import DetectionEngine
 
+from video_writer_helper import VideoWriteHelper
+
 
 def load_labels(path):
     p = re.compile(r'\s*(\d+)(.+)')
@@ -66,9 +68,8 @@ def main_loop():
     width = int(cap.get(4))
     print("Camera Height:%d Width:%d" % (height, width))
 
-    # Define the codec and create VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*'X264')
-    out = cv2.VideoWriter('output.avi', fourcc, 30.0, (height, width))
+    # Create VideoWrite_helper object
+    out = VideoWriteHelper(30.0, height, width)
 
     # prepare EdgeTPU
     engine, labels, threshold, top_k = prepare_edgetpu()
@@ -100,7 +101,7 @@ def main_loop():
         processed_frame = main_func(frame)
 
         cv2.imshow('processed_frame', processed_frame)
-        out.write(processed_frame)
+        out.write_frame(processed_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
