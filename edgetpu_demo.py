@@ -69,7 +69,7 @@ def main_loop():
     print("Camera Height:%d Width:%d" % (height, width))
 
     # Create VideoWrite_helper object
-    out = VideoWriteHelper(30.0, height, width)
+    out = VideoWriteHelper(15.0, height, width)
 
     # prepare EdgeTPU
     engine, labels, threshold, top_k = prepare_edgetpu()
@@ -101,6 +101,9 @@ def main_loop():
         processed_frame = main_func(frame)
 
         cv2.imshow('processed_frame', processed_frame)
+        # blank_image = np.zeros(shape=[200, 100, 1], dtype=np.uint8)
+        # cv2.imshow("this is button", blank_image)
+        
         out.write_frame(processed_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
