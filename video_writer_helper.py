@@ -23,15 +23,21 @@ class VideoWriteHelper:
         動画に画像を数フレーム計算して書き出す
         :param frame: opencv形式の画像
         """
+        now = time.monotonic()
+        
         if self.last_time is None:
             self.writer.write(frame)
         else:
             time_diff = time.monotonic() - self.last_time
             frame_times = round(time_diff / self.sec_par_frame)
+            
+            if frame_times is 0:
+                return
+                
             for _ in range(frame_times):
                 self.writer.write(frame)
 
-        self.last_time = time.monotonic()
+        self.last_time = now
         return
 
     def release(self):
