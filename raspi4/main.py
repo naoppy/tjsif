@@ -22,8 +22,6 @@ def main():
     interpreter = detect_image.make_interpreter(model)
     interpreter.allocate_tensors()
 
-
-
     while True:
         ret, frame = cap.read()
         frame = misc.cv2pil(frame)
