@@ -30,7 +30,7 @@ def main():
         processed_frame = edge_detect(interpreter, frame, threshold, labels)
 
         cv2.imshow('processed_frame', processed_frame)
-        out.write(processed_frame)
+        out.write_frame(processed_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
