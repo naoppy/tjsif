@@ -20,7 +20,7 @@ import time
 from PIL import Image
 from PIL import ImageDraw
 
-import detect
+from raspi4 import detect
 import tflite_runtime.interpreter as tflite
 
 EDGETPU_SHARED_LIB = 'libedgetpu.so.1'
