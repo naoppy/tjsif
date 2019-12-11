@@ -4,6 +4,8 @@ from PIL import Image, ImageDraw
 import video_writer_helper as writer
 from raspi4 import detect_image, detect
 
+import numpy as np
+
 
 def main():
     cap = cv2.VideoCapture(0)
@@ -14,8 +16,8 @@ def main():
 
     out = writer.VideoWriteHelper(15.0, height, width)
 
-    model_file = "models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
-    label_file = "models/coco_labels.txt"
+    model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
+    label_file = "../all_models/coco_labels.txt"
     threshold = 0.6
 
     labels = detect_image.load_labels(label_file)
@@ -49,7 +51,7 @@ def edge_detect(interpreter, frame_cv, threshold, labels):
     """
     # OpenCVはBGR、PillowはRGB
     frame_rgb = cv2.cvtColor(frame_cv, cv2.COLOR_BGR2RGB)
-    image = Image.fromarray(frame_rgb)
+    image = Image.fromarray(frame_rgb).convert("RGB")
 
     scale = detect.set_input(interpreter, image.size,
                              lambda size: image.resize(size, Image.ANTIALIAS))
@@ -69,7 +71,7 @@ def edge_detect(interpreter, frame_cv, threshold, labels):
         print('  bbox:  ', obj.bbox)
 
     detect_image.draw_objects(ImageDraw.Draw(image), objs, labels)
-    cv_bgr = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+    cv_bgr = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
     return cv_bgr
 
 
