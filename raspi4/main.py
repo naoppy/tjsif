@@ -1,15 +1,19 @@
 import cv2
+import numpy as np
 from PIL import Image, ImageDraw
 
 import video_writer_helper as writer
 from raspi4 import detect_image, detect
 
-import numpy as np
-
 
 def main():
     cap = cv2.VideoCapture(0)
 
+    cap.set(cv2.CAP_PROP_FPS, 15)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 360)
+
+    print("fps:%d" % (cap.get(cv2.CAP_PROP_FPS)))
     height = int(cap.get(3))
     width = int(cap.get(4))
     print("Camera Height:%d Width:%d" % (height, width))
