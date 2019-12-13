@@ -4,14 +4,12 @@ import cv2
 avg = None
 
 
-# 輪郭を絞り込む関数（サイズで絞り込み）
 def extract_contours(contours, size):
     """
     contours:領域の四点のx,y座標。
     size:どのくらいのサイズ以上だったら抽出するのか、という閾値。小さすぎると腕以外のものも検出してしまう。
     返り値:「size」で指定した面積以上の領域をリスト形式で返す。
     """
-    area = 0
     list_extracted_contours = []
     for i in contours:
         area = cv2.contourArea(i)
@@ -21,9 +19,13 @@ def extract_contours(contours, size):
     return list_extracted_contours
 
 
-# 輪郭（長方形）を抽出し、画像に出力する関数
-# ただのデバッグ用にすぎない
 def write_rect_to_img(img, contours):
+    """
+    Just For Debug
+    :param img: image which is overdraw rectangles
+    :param contours:
+    :return: given image
+    """
     for cnt in contours:
         x, y, w, h = cv2.boundingRect(cnt)
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -32,6 +34,12 @@ def write_rect_to_img(img, contours):
 
 
 def frame_diff_detection(frame):
+    """
+
+    :param frame:opencv_iamge
+    :return: if none, it is the first call to this function else given image (or overdraw given image)
+    """
+    # convert BGR(opencv_image) to GRAY
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     global avg
@@ -39,25 +47,39 @@ def frame_diff_detection(frame):
         avg = gray.copy().astype("float")
         return None
 
+    # accumulate
+    # avg = (1-alpha)*avg + alpha*gray
     cv2.accumulateWeighted(gray, avg, 0.2)
     frame_delta = cv2.absdiff(gray, cv2.convertScaleAbs(avg))
+    # 閾値は第二引数
     thresh = cv2.threshold(frame_delta, 40, 255, cv2.THRESH_BINARY)[1]
     _, contours, hierarchy = cv2.findContours(thresh.copy(), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     min_size = 500
     list_extracted_contours = extract_contours(contours, min_size)
     cv2.imshow("thresh", thresh)
-    return write_rect_to_img(frame, list_extracted_contours)
+
+    # THIS IS FOR DEBUG
+    retimg = write_rect_to_img(frame, list_extracted_contours)
+
+    return retimg
 
 
 def main():
     cap = cv2.VideoCapture(0)
 
-    height = int(cap.get(3))
-    width = int(cap.get(4))
+    cap.set(cv2.CAP_PROP_FPS, 15)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 360)
+
+    print("fps:%d" % (cap.get(cv2.CAP_PROP_FPS)))
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print("Camera Height:%d Width:%d" % (height, width))
 
     while True:
-        _, frame = cap.read()
+        ret, frame = cap.read()
+        if not ret:
+            print("Camera Failed")
 
         img = frame_diff_detection(frame)
         if img is None:

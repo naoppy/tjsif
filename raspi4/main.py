@@ -14,8 +14,8 @@ def main():
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 360)
 
     print("fps:%d" % (cap.get(cv2.CAP_PROP_FPS)))
-    height = int(cap.get(3))
-    width = int(cap.get(4))
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print("Camera Height:%d Width:%d" % (height, width))
 
     out = writer.VideoWriteHelper(15.0, height, width)
