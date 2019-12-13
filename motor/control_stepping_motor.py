@@ -3,13 +3,13 @@
 # 定格電圧2.2 定格電流1.6 内部抵抗1.35
 import R64.GPIO as GPIO
 from time import sleep
+import atexit
 
 GPIO.setmode(GPIO.BOARD)  # ピン番号でピンを指定
 
-GPIO.setup(3, GPIO.OUT)  # ピンを出力に設定
-GPIO.setup(5, GPIO.OUT)
-GPIO.setup(15, GPIO.OUT)
-GPIO.setup(16, GPIO.OUT)
+out_channels = [3, 5, 15, 16]
+
+GPIO.setup(out_channels, GPIO.OUT)  # ピンを出力に設定
 
 
 def right_spin_7_2degree():
@@ -75,3 +75,10 @@ def right_spin_360degree():
 def left_spin_360degree():
     for _ in range(0, 50):
         left_spin_7_2degree()
+
+
+def __cleanup():
+    GPIO.cleanup()
+
+
+atexit.register(__cleanup)
