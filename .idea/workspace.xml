@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/products/motion_detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motion_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/motion_detect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/products/video_writer_helper.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,15 +25,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motion_detect.py">
+        <entry file="file://$PROJECT_DIR$/video_writer_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="54" column="70" lean-forward="true" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+            <state>
+              <caret selection-end-line="50" />
+              <folding>
+                <element signature="e#15#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/products/motion_detect.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
@@ -44,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/video_writer_helper.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/products/video_writer_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            <state relative-caret-position="764">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#15#26#0" expanded="true" />
               </folding>
@@ -82,6 +83,7 @@
         <option value="$PROJECT_DIR$/raspi4/main.py" />
         <option value="$PROJECT_DIR$/motion_detect.py" />
         <option value="$PROJECT_DIR$/products/motion_detect.py" />
+        <option value="$PROJECT_DIR$/products/video_writer_helper.py" />
       </list>
     </option>
   </component>
@@ -101,6 +103,11 @@
             <path>
               <item name="tjsif" type="b2602c69:ProjectViewProjectNode" />
               <item name="tjsif" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tjsif" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tjsif" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -240,18 +247,18 @@
       <workItem from="1576154572102" duration="683000" />
       <workItem from="1576237717341" duration="7780000" />
       <workItem from="1576250198434" duration="737000" />
-      <workItem from="1576290030607" duration="5406000" />
+      <workItem from="1576290030607" duration="5553000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31443000" />
+    <option name="totallyTimeSpent" value="31590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20131291" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20131291" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -353,6 +360,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/motion_detect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="54" column="70" lean-forward="true" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/raspi4/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -363,17 +377,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motion_detect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="54" column="70" lean-forward="true" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/video_writer_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        <state>
+          <caret selection-end-line="50" />
           <folding>
             <element signature="e#15#26#0" expanded="true" />
           </folding>
@@ -384,6 +391,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/video_writer_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="764">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#15#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
