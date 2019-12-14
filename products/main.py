@@ -18,8 +18,6 @@ def main():
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print("Camera Height:%d Width:%d" % (height, width))
 
-    out = writer.VideoWriteHelper(15.0, height, width, "output.mov", "mp4v")
-
     model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
     label_file = "../all_models/coco_labels.txt"
     threshold = 0.6
@@ -31,22 +29,19 @@ def main():
     while True:
         ret, frame = cap.read()
 
-        processed_frame = edge_detect(interpreter, frame, threshold, labels)
-
-        cv2.imshow('processed_frame', processed_frame)
-        out.write_frame(processed_frame)
+        
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
     cap.release()
-    out.release()
     cv2.destroyAllWindows()
 
 
-def edge_detect(interpreter, frame_cv, threshold, labels):
+def edge_detect_person(interpreter, frame_cv, threshold, labels):
     """
     object-detection using edge tpu
+    detect person only
     :param labels:
     :param threshold:
     :param interpreter:
@@ -63,20 +58,16 @@ def edge_detect(interpreter, frame_cv, threshold, labels):
     interpreter.invoke()
 
     objs = detect.get_output(interpreter, threshold, scale)
-
-    print('-------RESULTS--------')
-    if not objs:
-        print('No objects detected')
+    persons = [x for x in objs if x.id == 0]
 
     for obj in objs:
-        print(labels.get(obj.id, obj.id))
-        print('  id:    ', obj.id)
+        print('person')
         print('  score: ', obj.score)
         print('  bbox:  ', obj.bbox)
 
-    detect_image.draw_objects(ImageDraw.Draw(image), objs, labels)
-    cv_bgr = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-    return cv_bgr
+    detect_image.draw_objects(ImageDraw.Draw(image), persons, labels)
+    cv_image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+    return cv_image
 
 
 if __name__ == '__main__':
