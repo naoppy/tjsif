@@ -36,7 +36,7 @@ def write_rect_to_img(img, contours):
 def frame_diff_detection(frame):
     """
 
-    :param frame:opencv_iamge
+    :param frame:opencv_image
     :return: if none, it is the first call to this function else given image (or overdraw given image)
     """
     # convert BGR(opencv_image) to GRAY
