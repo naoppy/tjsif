@@ -18,7 +18,7 @@ def main():
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print("Camera Height:%d Width:%d" % (height, width))
 
-    out = writer.VideoWriteHelper(15.0, height, width)
+    out = writer.VideoWriteHelper(15.0, height, width, "output.mov", "mp4v")
 
     model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
     label_file = "../all_models/coco_labels.txt"
