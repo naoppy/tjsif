@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/raspi4/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspi4/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_writer_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/video_writer_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motion_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/motion_detect.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,14 +12,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/raspi4/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="20" column="75" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
+            <state relative-caret-position="561">
+              <caret line="33" column="76" lean-forward="true" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/motion_detect.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -55,13 +63,13 @@
         <option value="$PROJECT_DIR$/raspi4/misc.py" />
         <option value="$PROJECT_DIR$/raspi4/detect.py" />
         <option value="$PROJECT_DIR$/raspi4/test.py" />
-        <option value="$PROJECT_DIR$/motion_detect.py" />
         <option value="$PROJECT_DIR$/raspi4/detect_image.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/motor/control_stepping_motor.py" />
         <option value="$PROJECT_DIR$/video_writer_helper.py" />
         <option value="$PROJECT_DIR$/raspi4/video_write_test.py" />
         <option value="$PROJECT_DIR$/raspi4/main.py" />
+        <option value="$PROJECT_DIR$/motion_detect.py" />
       </list>
     </option>
   </component>
@@ -225,18 +233,18 @@
       <workItem from="1576154572102" duration="683000" />
       <workItem from="1576237717341" duration="7780000" />
       <workItem from="1576250198434" duration="737000" />
-      <workItem from="1576290030607" duration="1594000" />
+      <workItem from="1576290030607" duration="2573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27631000" />
+    <option name="totallyTimeSpent" value="28610000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20131291" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20131291" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -328,13 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motion_detect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/raspi4/video_write_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -357,11 +358,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/raspi4/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="20" column="75" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
+        <state relative-caret-position="561">
+          <caret line="33" column="76" lean-forward="true" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motion_detect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
         </state>
       </provider>
     </entry>

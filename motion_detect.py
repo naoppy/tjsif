@@ -54,7 +54,7 @@ def frame_diff_detection(frame):
     # 閾値は第二引数
     thresh = cv2.threshold(frame_delta, 40, 255, cv2.THRESH_BINARY)[1]
     contours, hierarchy = cv2.findContours(thresh.copy(), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-    min_size = 500
+    min_size = 1500
     list_extracted_contours = extract_contours(contours, min_size)
     cv2.imshow("thresh", thresh)
 
