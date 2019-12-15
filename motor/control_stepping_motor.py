@@ -11,6 +11,8 @@ out_channels = [11, 12, 13, 15]
 
 GPIO.setup(out_channels, GPIO.OUT)  # ピンを出力に設定
 
+sleep_time = 0.005
+
 
 def __outputs(channels, settings):
     for ch, value in zip(channels, settings):
@@ -20,31 +22,31 @@ def __outputs(channels, settings):
 def right_spin_7_2degree():
     # 茶, 赤, 橙, 黄
     __outputs(out_channels, [GPIO.LOW, GPIO.LOW, GPIO.HIGH, GPIO.HIGH])
-    sleep(0.02)  # 脱調を防ぐため
+    sleep(sleep_time)  # 脱調を防ぐため
 
     __outputs(out_channels, [GPIO.HIGH, GPIO.LOW, GPIO.LOW, GPIO.HIGH])
-    sleep(0.02)
+    sleep(sleep_time)
 
     __outputs(out_channels, [GPIO.HIGH, GPIO.HIGH, GPIO.LOW, GPIO.LOW])
-    sleep(0.02)
+    sleep(sleep_time)
 
     __outputs(out_channels, [GPIO.LOW, GPIO.HIGH, GPIO.HIGH, GPIO.LOW])
-    sleep(0.02)
+    sleep(sleep_time)
 
 
 def left_spin_7_2degree():
     # 茶, 赤, 橙, 黄
     __outputs(out_channels, [GPIO.LOW, GPIO.LOW, GPIO.HIGH, GPIO.HIGH])
-    sleep(0.02)
+    sleep(sleep_time)
 
     __outputs(out_channels, [GPIO.LOW, GPIO.HIGH, GPIO.HIGH, GPIO.LOW])
-    sleep(0.02)
+    sleep(sleep_time)
 
     __outputs(out_channels, [GPIO.HIGH, GPIO.HIGH, GPIO.LOW, GPIO.LOW])
-    sleep(0.02)
+    sleep(sleep_time)
 
     __outputs(out_channels, [GPIO.HIGH, GPIO.LOW, GPIO.LOW, GPIO.HIGH])
-    sleep(0.02)
+    sleep(sleep_time)
 
 
 # 回転角度=ステップ角*指令パルス数　

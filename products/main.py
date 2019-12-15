@@ -86,7 +86,7 @@ def recording_loop(cap, interpreter, threshold):
 
         if persons:
             last_detect_time = time.time()
-            calc_lotation.lotate(persons)
+            calc_lotation.rotate(persons, width)
             out.write_frame(frame)
         else:
             now = time.time()
