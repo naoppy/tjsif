@@ -5,15 +5,17 @@ from products import detect_image, misc, detect
 
 def main():
     cap = cv2.VideoCapture(0)
-
+    # Camera Settings
     cap.set(cv2.CAP_PROP_FPS, 15)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 360)
-
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+    cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
+    # Print Camera Information
     print("fps:%d" % (cap.get(cv2.CAP_PROP_FPS)))
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print("Camera Height:%d Width:%d" % (height, width))
+    print("Camera Encoding:%s" % (misc.decode_fourcc(cap.get(cv2.CAP_PROP_FOURCC))))
 
     model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
     label_file = "../all_models/coco_labels.txt"
