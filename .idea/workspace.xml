@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/demo/detect_demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R64/GPIO/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R64/_GPIO.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R64/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motion_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/motion_detect_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspi4/detect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspi4/detect_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspi4/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspi4/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_writer_helper.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +51,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\naoki\Desktop\git\tjsif\demo" />
       <recent name="C:\Users\naoki\Desktop\git\tjsif\motor" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -109,7 +119,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/motion_detect.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\naoki\Desktop\git\tjsif\demo\motion_detect_demo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,7 +175,7 @@
       <workItem from="1576322374043" duration="7681000" />
       <workItem from="1576339008973" duration="2136000" />
       <workItem from="1576373411463" duration="7991000" />
-      <workItem from="1576385329389" duration="3306000" />
+      <workItem from="1576385329389" duration="3952000" />
     </task>
     <servers />
   </component>
@@ -181,6 +191,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1073" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1576374979283" />
+    <state x="1170" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576389223820">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1170" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576389223820" />
     <state x="1108" y="281" key="EnvironmentVariablesDialog" timestamp="1576380476347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -1,9 +1,6 @@
 import cv2
-import numpy as np
 from PIL import Image, ImageDraw
-
-import video_writer_helper as writer
-from raspi4 import detect_image, detect
+from products import detect_image, misc, detect
 
 
 def main():
@@ -17,8 +14,6 @@ def main():
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print("Camera Height:%d Width:%d" % (height, width))
-
-    out = writer.VideoWriteHelper(15.0, height, width, "output.mov", "mp4v")
 
     model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
     label_file = "../all_models/coco_labels.txt"
@@ -34,13 +29,11 @@ def main():
         processed_frame = edge_detect(interpreter, frame, threshold, labels)
 
         cv2.imshow('processed_frame', processed_frame)
-        out.write_frame(processed_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
     cap.release()
-    out.release()
     cv2.destroyAllWindows()
 
 
@@ -54,8 +47,7 @@ def edge_detect(interpreter, frame_cv, threshold, labels):
     :return:
     """
     # OpenCVはBGR、PillowはRGB
-    frame_rgb = cv2.cvtColor(frame_cv, cv2.COLOR_BGR2RGB)
-    image = Image.fromarray(frame_rgb).convert("RGB")
+    image = misc.cv2pil(frame_cv)
 
     scale = detect.set_input(interpreter, image.size,
                              lambda size: image.resize(size, Image.ANTIALIAS))
@@ -75,7 +67,7 @@ def edge_detect(interpreter, frame_cv, threshold, labels):
         print('  bbox:  ', obj.bbox)
 
     detect_image.draw_objects(ImageDraw.Draw(image), objs, labels)
-    cv_bgr = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+    cv_bgr = misc.pil2cv(image)
     return cv_bgr
 
 
