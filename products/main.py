@@ -2,7 +2,7 @@ import cv2
 import time
 from PIL import Image, ImageDraw
 
-from products import detect_image, detect, motion_detect, video_writer_helper, calc_lotation, misc
+from products import detect_image, detect, motion_detect, video_writer_helper, calc_rotation, misc
 
 
 # Implementation of tjsif_flowchart.svg
@@ -86,7 +86,7 @@ def recording_loop(cap, interpreter, threshold):
 
         if persons:
             last_detect_time = time.time()
-            calc_lotation.rotate(persons, width)
+            calc_rotation.rotate(persons, width)
             out.write_frame(frame)
         else:
             now = time.time()

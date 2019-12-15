@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motor/control_stepping_motor.py" beforeDir="false" afterPath="$PROJECT_DIR$/motor/control_stepping_motor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/calc_lotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/calc_lotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/calc_lotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/calc_rotation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +170,7 @@
       <workItem from="1576373411463" duration="7991000" />
       <workItem from="1576385329389" duration="4992000" />
       <workItem from="1576391514365" duration="1657000" />
-      <workItem from="1576412184014" duration="1348000" />
+      <workItem from="1576412184014" duration="1423000" />
     </task>
     <servers />
   </component>
