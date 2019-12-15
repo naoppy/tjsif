@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/products/calc_lotation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/video_save.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/products/misc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/main.py" afterDir="false" />
     </list>
@@ -43,11 +42,11 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\naoki\Desktop\git\tjsif\products" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\naoki\Desktop\git\tjsif\motor" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\naoki\Desktop\git\tjsif\products" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main (1)">
@@ -166,7 +165,8 @@
       <workItem from="1576310824595" duration="178000" />
       <workItem from="1576322374043" duration="7681000" />
       <workItem from="1576339008973" duration="2136000" />
-      <workItem from="1576373411463" duration="7602000" />
+      <workItem from="1576373411463" duration="7991000" />
+      <workItem from="1576385329389" duration="1967000" />
     </task>
     <servers />
   </component>
@@ -186,22 +186,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1108" y="281" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576380476347" />
-    <state width="914" height="278" key="GridCell.Tab.0.bottom" timestamp="1576381022922">
+    <state width="914" height="278" key="GridCell.Tab.0.bottom" timestamp="1576382543225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576381022922" />
-    <state width="914" height="278" key="GridCell.Tab.0.center" timestamp="1576381022922">
+    <state width="914" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576382543225" />
+    <state width="914" height="278" key="GridCell.Tab.0.center" timestamp="1576382543225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576381022922" />
-    <state width="914" height="278" key="GridCell.Tab.0.left" timestamp="1576381022922">
+    <state width="914" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576382543225" />
+    <state width="914" height="278" key="GridCell.Tab.0.left" timestamp="1576382543225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576381022922" />
-    <state width="914" height="278" key="GridCell.Tab.0.right" timestamp="1576381022922">
+    <state width="914" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576382543225" />
+    <state width="914" height="278" key="GridCell.Tab.0.right" timestamp="1576382543225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576381022922" />
+    <state width="914" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576382543225" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

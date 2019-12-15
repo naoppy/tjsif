@@ -1,32 +1,31 @@
 import cv2
 import time
-import numpy as np
 from PIL import Image, ImageDraw
 
-from products import detect_image, detect, motion_detect, video_writer_helper, calc_lotation
+from products import detect_image, detect, motion_detect, video_writer_helper, calc_lotation, misc
 
 
 # Implementation of tjsif_flowchart.svg
 
 def main():
     cap = cv2.VideoCapture(0)
-
+    # Camera Settings
     cap.set(cv2.CAP_PROP_FPS, 15)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
-
+    # Print Camera Information
     print("fps:%d" % (cap.get(cv2.CAP_PROP_FPS)))
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print("Camera Height:%d Width:%d" % (height, width))
-    print("Camera Encoding:%s" % (decode_fourcc(cap.get(cv2.CAP_PROP_FOURCC))))
-
+    print("Camera Encoding:%s" % (misc.decode_fourcc(cap.get(cv2.CAP_PROP_FOURCC))))
+    # TPU settings
     model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
     label_file = "../all_models/coco_labels.txt"
     threshold = 0.6
 
-    labels = detect_image.load_labels(label_file)
+    labels = detect_image.load_labels(label_file)  # Unused
     interpreter = detect_image.make_interpreter(model_file)
     interpreter.allocate_tensors()
 
@@ -40,7 +39,7 @@ def main():
         # FIN DEBUG CODE===
 
         if motion_detect.frame_diff_detection(frame):
-            persons = edge_detect_person(interpreter, frame, threshold, labels)
+            persons = edge_detect_person(interpreter, frame, threshold)
             if persons:
                 # There are moving persons
                 # start Recording Loop
@@ -48,7 +47,7 @@ def main():
                 # DEBUG CODE===
                 # cv2.destroyAllWindows()
                 # FIN DEBUG CODE===
-                recording_loop(cap, interpreter, threshold, labels)
+                recording_loop(cap, interpreter, threshold)
             else:
                 # Do Nothing
                 pass
@@ -60,10 +59,11 @@ def main():
     cv2.destroyAllWindows()
 
 
-def recording_loop(cap, interpreter, threshold, labels):
+def recording_loop(cap, interpreter, threshold):
     print("start recording")
 
     last_detect_time = time.time()
+
     fps = cap.get(cv2.CAP_PROP_FPS)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -75,7 +75,7 @@ def recording_loop(cap, interpreter, threshold, labels):
     while True:
         ret, frame = cap.read()
 
-        persons = edge_detect_person(interpreter, frame, threshold, labels)
+        persons = edge_detect_person(interpreter, frame, threshold)
 
         if persons:
             last_detect_time = time.time()
@@ -94,7 +94,7 @@ def recording_loop(cap, interpreter, threshold, labels):
     print("finish recording")
 
 
-def edge_detect_person(interpreter, frame_cv, threshold, labels):
+def edge_detect_person(interpreter, frame_cv, threshold):
     """
     object-detection using edge tpu
     detect person only
@@ -103,8 +103,7 @@ def edge_detect_person(interpreter, frame_cv, threshold, labels):
     :return: detected persons list
     """
     # OpenCVはBGR、PillowはRGB
-    frame_rgb = cv2.cvtColor(frame_cv, cv2.COLOR_BGR2RGB)
-    image = Image.fromarray(frame_rgb).convert("RGB")
+    image = misc.cv2pil(frame_cv)
 
     scale = detect.set_input(interpreter, image.size,
                              lambda size: image.resize(size, Image.ANTIALIAS))
@@ -120,19 +119,14 @@ def edge_detect_person(interpreter, frame_cv, threshold, labels):
     #     print('  score: ', obj.score)
     #     print('  bbox:  ', obj.bbox)
     #
-    # detect_image.draw_objects(ImageDraw.Draw(image), persons, labels)
-    # cv_image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-    # return cv_image
+    # DEBUG CODE===
+    # misc.draw_persons(ImageDraw.Draw(image), persons)
+    # cv_image = misc.pil2cv(image)
+    # cv2.imshow("recording frame", cv_image)
+    # if cv2.waitKey(1) & 0xFF == ord('q'):
+    #     break
+    # FIN DEBUG CODE===
     return persons
-
-
-def decode_fourcc(v):
-    """"
-    THIS IS FOR DEBUG
-    """
-    # https://amdkkj.blogspot.com/2017/06/opencv-python-for-windows-playing-videos_17.html
-    v = int(v)
-    return "".join([chr((v >> 8 * i) & 0xFF) for i in range(4)])
 
 
 if __name__ == '__main__':
