@@ -35,6 +35,7 @@ def main():
         # DEBUG CODE===
         # cv2.imshow("frame", frame)
         # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     cv2.destroyAllWindows()
         #     break
         # FIN DEBUG CODE===
 
@@ -76,6 +77,12 @@ def recording_loop(cap, interpreter, threshold):
         ret, frame = cap.read()
 
         persons = edge_detect_person(interpreter, frame, threshold)
+
+        # DEBUG CODE===
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     cv2.destroyAllWindows()
+        #     break
+        # FIN DEBUG CODE===
 
         if persons:
             last_detect_time = time.time()
@@ -123,8 +130,6 @@ def edge_detect_person(interpreter, frame_cv, threshold):
     # misc.draw_persons(ImageDraw.Draw(image), persons)
     # cv_image = misc.pil2cv(image)
     # cv2.imshow("recording frame", cv_image)
-    # if cv2.waitKey(1) & 0xFF == ord('q'):
-    #     break
     # FIN DEBUG CODE===
     return persons
 
