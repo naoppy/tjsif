@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/moveMotor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/calc_rotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/calc_rotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/misc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <workItem from="1576373411463" duration="7991000" />
       <workItem from="1576385329389" duration="4992000" />
       <workItem from="1576391514365" duration="1657000" />
-      <workItem from="1576412184014" duration="1721000" />
+      <workItem from="1576412184014" duration="4766000" />
     </task>
     <servers />
   </component>
