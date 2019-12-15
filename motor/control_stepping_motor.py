@@ -1,66 +1,49 @@
 # coding=utf-8
 # ステップ角1.8度
 # 定格電圧2.2 定格電流1.6 内部抵抗1.35
-import R64.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 import atexit
 
 GPIO.setmode(GPIO.BOARD)  # ピン番号でピンを指定
 
-out_channels = [3, 5, 15, 16]
+out_channels = [11, 12, 13, 15]
 
 GPIO.setup(out_channels, GPIO.OUT)  # ピンを出力に設定
 
 
+def __outputs(channels, settings):
+    for ch, value in zip(channels, settings):
+        GPIO.output(ch, value)
+
+
 def right_spin_7_2degree():
-    GPIO.output(3, GPIO.LOW)  # 茶(モータの線の色)
-    GPIO.output(5, GPIO.LOW)  # 赤
-    GPIO.output(15, GPIO.HIGH)  # 橙
-    GPIO.output(16, GPIO.HIGH)  # 黄
+    # 茶, 赤, 橙, 黄
+    __outputs(out_channels, [GPIO.LOW, GPIO.LOW, GPIO.HIGH, GPIO.HIGH])
     sleep(0.02)  # 脱調を防ぐため
 
-    GPIO.output(3, GPIO.HIGH)
-    GPIO.output(5, GPIO.LOW)
-    GPIO.output(15, GPIO.LOW)
-    GPIO.output(16, GPIO.HIGH)
+    __outputs(out_channels, [GPIO.HIGH, GPIO.LOW, GPIO.LOW, GPIO.HIGH])
     sleep(0.02)
 
-    GPIO.output(3, GPIO.HIGH)
-    GPIO.output(5, GPIO.HIGH)
-    GPIO.output(15, GPIO.LOW)
-    GPIO.output(16, GPIO.LOW)
+    __outputs(out_channels, [GPIO.HIGH, GPIO.HIGH, GPIO.LOW, GPIO.LOW])
     sleep(0.02)
 
-    GPIO.output(3, GPIO.LOW)
-    GPIO.output(5, GPIO.HIGH)
-    GPIO.output(15, GPIO.HIGH)
-    GPIO.output(16, GPIO.LOW)
+    __outputs(out_channels, [GPIO.LOW, GPIO.HIGH, GPIO.HIGH, GPIO.LOW])
     sleep(0.02)
 
 
 def left_spin_7_2degree():
-    GPIO.output(3, GPIO.LOW)  # 茶(モータの線の色)
-    GPIO.output(5, GPIO.LOW)  # 赤
-    GPIO.output(15, GPIO.HIGH)  # 橙
-    GPIO.output(16, GPIO.HIGH)  # 黄
+    # 茶, 赤, 橙, 黄
+    __outputs(out_channels, [GPIO.LOW, GPIO.LOW, GPIO.HIGH, GPIO.HIGH])
     sleep(0.02)
 
-    GPIO.output(3, GPIO.LOW)
-    GPIO.output(5, GPIO.HIGH)
-    GPIO.output(15, GPIO.HIGH)
-    GPIO.output(16, GPIO.LOW)
+    __outputs(out_channels, [GPIO.LOW, GPIO.HIGH, GPIO.HIGH, GPIO.LOW])
     sleep(0.02)
 
-    GPIO.output(3, GPIO.HIGH)
-    GPIO.output(5, GPIO.HIGH)
-    GPIO.output(15, GPIO.LOW)
-    GPIO.output(16, GPIO.LOW)
+    __outputs(out_channels, [GPIO.HIGH, GPIO.HIGH, GPIO.LOW, GPIO.LOW])
     sleep(0.02)
 
-    GPIO.output(3, GPIO.HIGH)
-    GPIO.output(5, GPIO.LOW)
-    GPIO.output(15, GPIO.LOW)
-    GPIO.output(16, GPIO.HIGH)
+    __outputs(out_channels, [GPIO.HIGH, GPIO.LOW, GPIO.LOW, GPIO.HIGH])
     sleep(0.02)
 
 

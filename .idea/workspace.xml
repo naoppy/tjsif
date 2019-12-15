@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/detect_demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R64/GPIO/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R64/_GPIO.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R64/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motion_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/motion_detect_demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raspi4/detect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raspi4/detect_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raspi4/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raspi4/misc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_writer_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motor/control_stepping_motor.py" beforeDir="false" afterPath="$PROJECT_DIR$/motor/control_stepping_motor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +166,7 @@
       <workItem from="1576322374043" duration="7681000" />
       <workItem from="1576339008973" duration="2136000" />
       <workItem from="1576373411463" duration="7991000" />
-      <workItem from="1576385329389" duration="3952000" />
+      <workItem from="1576385329389" duration="4743000" />
     </task>
     <servers />
   </component>
