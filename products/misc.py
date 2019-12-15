@@ -24,15 +24,16 @@ def decode_fourcc(v):
     return "".join([chr((v >> 8 * i) & 0xFF) for i in range(4)])
 
 
-def draw_persons(draw, objs):
+def draw_persons(draw, persons):
     """
     Draws the bounding box for each person.
     :param draw: PIL Draw Object
+    :param persons: detected persons
     """
-    for obj in objs:
-        bbox = obj.bbox
+    for person in persons:
+        bbox = person.bbox
         draw.rectangle([(bbox.xmin, bbox.ymin), (bbox.xmax, bbox.ymax)],
                        outline='red')
         draw.text((bbox.xmin + 10, bbox.ymin + 10),
-                  'person\n%.2f' % obj.score,
+                  'person\n%.2f' % person.score,
                   fill='red')
