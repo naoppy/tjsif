@@ -11,7 +11,7 @@ out_channels = [11, 12, 13, 15]
 
 GPIO.setup(out_channels, GPIO.OUT)  # ピンを出力に設定
 
-sleep_time = 0.005
+sleep_time = 0.02
 
 
 def __outputs(channels, settings):
@@ -66,4 +66,6 @@ def __cleanup():
     GPIO.cleanup()
 
 
+__outputs(out_channels, [GPIO.LOW, GPIO.LOW, GPIO.HIGH, GPIO.HIGH])
+print("GPIO initialized")
 atexit.register(__cleanup)
