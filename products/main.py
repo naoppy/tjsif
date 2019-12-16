@@ -10,9 +10,9 @@ from products import detect_image, detect, motion_detect, video_writer_helper, c
 def main():
     cap = cv2.VideoCapture(0)
     # Camera Settings
-    cap.set(cv2.CAP_PROP_FPS, 15)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+    cap.set(cv2.CAP_PROP_FPS, 30)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
     cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
     # Print Camera Information
     print("fps:%d" % (cap.get(cv2.CAP_PROP_FPS)))
@@ -21,7 +21,7 @@ def main():
     print("Camera Height:%d Width:%d" % (height, width))
     print("Camera Encoding:%s" % (misc.decode_fourcc(cap.get(cv2.CAP_PROP_FOURCC))))
     # TPU settings
-    model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite"
+    model_file = "../all_models/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite"
     label_file = "../all_models/coco_labels.txt"
     threshold = 0.6
 
