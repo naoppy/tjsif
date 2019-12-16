@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/rotate_motor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/calc_rotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/calc_rotation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +222,7 @@
       <workItem from="1576475604912" duration="170000" />
       <workItem from="1576475800307" duration="617000" />
       <workItem from="1576477305014" duration="7327000" />
-      <workItem from="1576508903796" duration="1068000" />
+      <workItem from="1576508903796" duration="1202000" />
     </task>
     <servers />
   </component>
