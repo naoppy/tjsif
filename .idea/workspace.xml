@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5ee5550-ee1b-4693-bf21-07cd4df90536" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/detect_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/detect_demo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
       <recent name="C:\Users\naoki\Desktop\git\tjsif\products" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.detect_demo">
+  <component name="RunManager" selected="Python.moveMotor">
     <configuration name="detect_demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="tjsif" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,14 +142,38 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="moveMotor" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="tjsif" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/moveMotor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.motion_detect" />
       <item itemvalue="Python.main (1)" />
       <item itemvalue="Python.detect_demo" />
+      <item itemvalue="Python.moveMotor" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.moveMotor" />
         <item itemvalue="Python.detect_demo" />
         <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.motion_detect" />
@@ -197,7 +221,7 @@
       <workItem from="1576470296437" duration="146000" />
       <workItem from="1576475604912" duration="170000" />
       <workItem from="1576475800307" duration="617000" />
-      <workItem from="1576477305014" duration="4002000" />
+      <workItem from="1576477305014" duration="5134000" />
     </task>
     <servers />
   </component>
@@ -272,6 +296,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tjsif$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1576380537028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/products" />
+    <SUITE FILE_PATH="coverage/tjsif$moveMotor.coverage" NAME="moveMotor Coverage Results" MODIFIED="1576482996016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/tjsif$test.coverage" NAME="test Coverage Results" MODIFIED="1576241487684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/raspi4" />
     <SUITE FILE_PATH="coverage/tjsif$detect_demo.coverage" NAME="detect_demo Coverage Results" MODIFIED="1576479606952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo" />
     <SUITE FILE_PATH="coverage/tjsif$main.coverage" NAME="main Coverage Results" MODIFIED="1576241587577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/raspi4" />

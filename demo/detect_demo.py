@@ -7,9 +7,9 @@ import time
 def main():
     cap = cv2.VideoCapture(0)
     # Camera Settings
-    cap.set(cv2.CAP_PROP_FPS, 30)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
+    cap.set(cv2.CAP_PROP_FPS, 15)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
     # Print Camera Information
     print("fps:%d" % (cap.get(cv2.CAP_PROP_FPS)))
@@ -34,10 +34,10 @@ def main():
 
         processed_frame = edge_detect(interpreter, frame, threshold, labels)
 
-        cv2.imshow('processed_frame', processed_frame)
+        # cv2.imshow('processed_frame', processed_frame)
 
         count += 1.0
-        if count % 30 == 0:
+        if count % 120 == 0:
             fps = count / (time.time() - start_time)
             print('FPS: {:.2f}'.format(fps))
             count = 0.0
@@ -69,15 +69,15 @@ def edge_detect(interpreter, frame_cv, threshold, labels):
 
     objs = detect.get_output(interpreter, threshold, scale)
 
-    print('-------RESULTS--------')
-    if not objs:
-        print('No objects detected')
-
-    for obj in objs:
-        print(labels.get(obj.id, obj.id))
-        print('  id:    ', obj.id)
-        print('  score: ', obj.score)
-        print('  bbox:  ', obj.bbox)
+    # print('-------RESULTS--------')
+    # if not objs:
+    #     print('No objects detected')
+    #
+    # for obj in objs:
+    #     print(labels.get(obj.id, obj.id))
+    #     print('  id:    ', obj.id)
+    #     print('  score: ', obj.score)
+    #     print('  bbox:  ', obj.bbox)
 
     detect_image.draw_objects(ImageDraw.Draw(image), objs, labels)
     cv_bgr = misc.pil2cv(image)
