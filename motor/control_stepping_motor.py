@@ -68,4 +68,5 @@ def __cleanup():
 
 __outputs(out_channels, [GPIO.LOW, GPIO.LOW, GPIO.HIGH, GPIO.HIGH])
 print("GPIO initialized")
+sleep(sleep_time)
 atexit.register(__cleanup)
