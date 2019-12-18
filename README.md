@@ -2,7 +2,7 @@ Surveillance Camera to Track People
 ====
 
 # Demo
-past movie which shows our work
+
 
 # Overview
 Detects only people with AI and records while tracking people with a camera.
@@ -26,6 +26,8 @@ Unlike a DC motor, a large current flows through the bipolar motor and its contr
 So I used a transistor that can withstand a large current and soldered a circuit like an H-bridge circuit.
 
 The circuit is [this]().
+
+[moving motor demo movie](https://twitter.com/NaoppyJ/status/1207291789524160515?s=19)
 
 # Requirements
 - RaspberryPi4
