@@ -34,7 +34,7 @@ def main():
 
         processed_frame = edge_detect(interpreter, frame, threshold, labels)
 
-        # cv2.imshow('processed_frame', processed_frame)
+        cv2.imshow('processed_frame', processed_frame)
 
         count += 1.0
         if count % 120 == 0:
